@@ -6,7 +6,7 @@
 
 
 class QMC5883LCompass{
-	
+
   public:
     QMC5883LCompass();
 	void init();
@@ -16,13 +16,19 @@ class QMC5883LCompass{
 	void setCalibration(int x_min, int x_max, int y_min, int y_max, int z_min, int z_max);
     void setReset();
     void read();
+    int getRawX();
+    int getRawY();
+    int getRawZ();
 	int getX();
 	int getY();
 	int getZ();
+    float getRoll();
+    float getPitch();
+    float getYaw();
 	int getAzimuth();
 	byte getBearing(int azimuth);
 	void getDirection(char* myArray, int azimuth);
-	
+
   private:
     void _writeReg(byte reg,byte val);
 	int _get(int index);
@@ -58,9 +64,9 @@ class QMC5883LCompass{
 		{' ', 'N', 'W'},
 		{'N', 'N', 'W'},
 	};
-	
-	
-	
+
+
+
 };
 
 #endif
